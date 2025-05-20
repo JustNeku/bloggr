@@ -7,6 +7,7 @@ ARG INSTALL_GRADLE="true"
 ARG GRADLE_VERSION="8.13"
 
 ENV JAVA_HOME=/usr/lib/jvm/msopenjdk-current
+ENV SPRING_PROFILES_ACTIVE=dev
 
 RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install maven \"${MAVEN_VERSION}\""; fi \
     && if [ "${INSTALL_GRADLE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install gradle \"${GRADLE_VERSION}\""; fi
