@@ -57,7 +57,7 @@ Note: Template changes (in `src/main/resources/templates/`) will be reloaded wit
 PostgreSQL is available at:
 - Host: `localhost`
 - Port: `5432`
-- Default credentials are configured in the application properties
+- Default credentials are configured in the `application.yml` or `application-dev.yml` file
 
 ### Customization
 
