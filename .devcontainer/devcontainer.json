@@ -11,7 +11,7 @@
 	// This can be used to network with other containers or with the host.
 	"forwardPorts": [
 		5432, // PostgreSQL
-		8081, // PGAdmin
+		8081, // PGAdmin.d	
 		8080 // Spring Boot
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
