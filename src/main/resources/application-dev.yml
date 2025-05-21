@@ -1,0 +1,8 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: ${DATASOURCE_URL}
+    password: ${POSTGRES_PASSWORD}
+    username: ${POSTGRES_USER}

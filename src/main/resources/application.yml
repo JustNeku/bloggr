@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: bloggr
+  profiles:
+    active: prod
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+
