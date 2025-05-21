@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Bloggr Database",
+            "Group": "Servers",
+            "Host": "postgresdb",
+            "Port": 5432,
+            "MaintenanceDB": "postgres",
+            "Username": "postgres",
+            "Password": "postgres",
+            "SSLMode": "prefer"
+        }
+    }
+}

@@ -59,6 +59,18 @@ PostgreSQL is available at:
 - Port: `5432`
 - Default credentials are configured in the `application.yml` or `application-dev.yml` file
 
+### pgAdmin Access
+
+pgAdmin is available at http://localhost:8081 for database management. 
+
+To login to pgAdmin:
+- Email: `admin@admin.com`
+- Password: `admin`
+
+The database server is pre-configured and will appear automatically in the server list as "Bloggr Database". When connecting to the database server:
+- Username is pre-filled as `postgres`
+- Only the password `postgres` needs to be entered
+
 ### Customization
 
 You can modify the dev container configuration in:
