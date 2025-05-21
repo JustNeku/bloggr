@@ -15,7 +15,9 @@
 		8080 // Spring Boot
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "gradle bootRun", // Start the Spring Boot application after the container is created.
+	// "postCreateCommand": "",
+	// Use 'initializeCommand' to run commands after the container is created and before any other command.
+	"postStartCommand": "gradle clean bootRun",
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
