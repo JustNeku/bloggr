@@ -18,7 +18,7 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
@@ -33,8 +33,16 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
-    - name: Build with Gradle Wrapper
+    - name: Build and test with Gradle Wrapper
       run: ./gradlew build
+
+    - name: Report test results
+      uses: dorny/test-reporter@v2
+      if: ${{ !cancelled() }}       # run this step even if previous step failed
+      with:
+        name: JUnit Tests            # Name of the check run which will be created
+        path: '**/build/test-results/test/TEST-*.xml'    # Path to test results
+        reporter: java-junit        # Format of test results
 
   dependency-submission:
 
@@ -54,30 +62,3 @@ jobs:
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-
-  test:
-
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-
-    - name: Test with Gradle Wrapper
-      run: ./gradlew test
-    - name: Test Report
-      uses: dorny/test-reporter@v2
-      if: ${{ !cancelled() }}       # run this step even if previous step failed
-      with:
-        name: JUnit Tests            # Name of the check run which will be created
-        path: '**/build/test-results/test/TEST-*.xml'    # Path to test results
-        reporter: java-junit        # Format of test results
